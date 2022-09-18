@@ -44,9 +44,18 @@ The tutorial recommended a series called "Demystified Containers" [linked here](
 The rest of the tutorial works with a simple **Node.js** todo list app.
 
 ## Get the app
-- Download the included zipped directory and extract
-- Remember we need to get this on the PopeBox
-- Open directory in VSCode
+
+I needed to modify the proceedure as I am practicing working with Docker on a remote system:
+
+- Use `wget` to download file to PopeBox
+- Unzip the directory
+- Delete the OG download
+
+Then, I decided to integrate Github into this:
+- Downloaded gh CLI
+- Authenticated my GH account
+- Pushed files to repo
+
 
 ## Building the App's Container Image
 
@@ -67,6 +76,20 @@ CMD ["node", "src/index.js"]
 
 2. Open a terminal and build the container with:
 ```
-docker build -t getting started .
+docker build -t getting-started .
+```
+- **-t** tags our container with a *human-readable* name
+- **.** tells Docker to look in the current directory for the `Dockerfile`
+
+## Starting the App Container
+We have an image and now we can run the application.
+1. Start the container using the `docker run` command, specifying the image name
+
+```
+docker run -dp 3000:3000 getting-started
 ```
 
+- **-d** runs the container in *detatched* mode, or in the background
+- **-p** maps the host's port 3000 to the container's port 3000
+
+![running_container.png] 
