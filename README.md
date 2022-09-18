@@ -92,4 +92,4 @@ docker run -dp 3000:3000 getting-started
 - **-d** runs the container in *detatched* mode, or in the background
 - **-p** maps the host's port 3000 to the container's port 3000
 
-![running_container.png] 
+![](running_container.png)
